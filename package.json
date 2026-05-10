@@ -1,0 +1,63 @@
+{
+  "name": "pi-template-kit",
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.0.9",
+  "description": "Shared LiquidJS prompt-template engine, filters, XML tag, and file loader for Pi packages.",
+  "license": "MIT",
+  "author": "Victor Software House",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/victor-software-house/pi-template-kit.git"
+  },
+  "homepage": "https://github.com/victor-software-house/pi-template-kit#readme",
+  "bugs": {
+    "url": "https://github.com/victor-software-house/pi-template-kit/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "liquidjs",
+    "prompt-templates",
+    "templating",
+    "llm"
+  ],
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./liquid": {
+      "types": "./dist/liquid/index.d.ts",
+      "import": "./dist/liquid/index.js"
+    },
+    "./template": {
+      "types": "./dist/template/index.d.ts",
+      "import": "./dist/template/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepack": "pnpm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "liquidjs": "^10.25.7"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  }
+}
