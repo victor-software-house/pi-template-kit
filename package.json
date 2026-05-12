@@ -1,7 +1,7 @@
 {
   "name": "pi-template-kit",
   "version": "0.1.0",
-  "packageManager": "pnpm@11.0.9",
+  "packageManager": "pnpm@11.1.1",
   "description": "Shared LiquidJS prompt-template engine, filters, XML tag, and file loader for Pi packages.",
   "license": "MIT",
   "author": "Victor Software House",
@@ -46,7 +46,8 @@
     "test": "vitest run",
     "check": "pnpm run typecheck && pnpm run test && pnpm run build",
     "prepack": "pnpm run build",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "prepublishOnly": "pnpm run check"
   },
   "publishConfig": {
     "access": "public",
@@ -65,5 +66,8 @@
     "semantic-release": "^25.0.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   }
 }
